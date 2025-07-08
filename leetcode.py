@@ -1,16 +1,21 @@
-def climbStairs(n):
-    if n == 1:
-        return 1
-    if n == 2:
-        return 2
+'''
+Example 1:
 
-    dp = [0] * n
-    dp[0] = 1
-    dp[1] = 2
+Input: s = "abc", t = "ahbgdc"
+Output: true
 
-    for i in range(2, n):
-        dp[i] = dp[i-1] + dp[i-2]
+Example 2:
 
-    return dp[-1]
-for
-print(climbStairs(4))
+Input: s = "axc", t = "ahbgdc"
+Output: false
+
+
+'''
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        for i in s:
+
+
+
+mysol = Solution()
+print(mysol.intToRoman(4))
