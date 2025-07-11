@@ -1,39 +1,54 @@
 '''
-Input: head = [1,2,3,4,5], k = 2
-Output: [4,5,1,2,3]
+Input: bills = [5,5,5,10,20]
+Output: true
+Explanation:
+From the first 3 customers, we collect three $5 bills in order.
+From the fourth customer, we collect a $10 bill and give back a $5.
+From the fifth customer, we give a $10 bill and a $5 bill.
+Since all customers got correct change, we output true.
+From the first two customers in order, we collect two $5 bills.
+Input: bills = [5,5,10,10,20]
+
+Output: false
+Explanation:
+For the next two customers in order, we collect a $10 bill and give back a $5 bill.
+For the last customer, we can not give the change of $15 back because we only have two $10 bills.
+Since not every customer received the correct change, the answer is false.
 '''
 from typing import List, Optional
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
 class Solution:
-    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        if not head:
-            return head
-        length = 1
-        dummy = head
-        while dummy.next:
-            dummy = head.next
-            length += 1
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        if bills[0] != 5:
+            return False
 
-        position =
+        fiveDollars = 0
+        tenDollars = 0
 
+        for x in bills:
+            if x == 5:
+                fiveDollars += 1
 
-node1 = ListNode(1)
-node2 = ListNode(2)
-node3 = ListNode(3)
-node4 = ListNode(4)
-node5 = ListNode(5)
+            elif x == 10:
+                if fiveDollars > 0:
+                    fiveDollars -= 1
 
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5
+                else:
+                    return False
 
-mylist = node1
+                tenDollars += 1
+            else:
+                if fiveDollars > 0 and tenDollars > 0:
+                    fiveDollars -= 1
+                    tenDollars -= 1
+
+                elif fiveDollars > 2:
+                    fiveDollars -= 3
+                else:
+                    return False
+            print(fiveDollars, tenDollars)
+
+        return True
 
 mysol = Solution()
-print(mysol.rotateRight(node1, 2))
+print(mysol.lemonadeChange([5, 5, 5, 10, 20]))
