@@ -1,17 +1,17 @@
-def foo(num):
-    if num == 0:
-        return 0
-    if num == 1:
-        return 1
+'''
+Coins: [1, 2, 5, 10, 20, 50, 100, 500, 2000]
+Amount: 93
+Coins used: [50, 20, 20, 2, 1]
+'''
+def foo(coins, amount):
+    coins.sort(reverse = True)
+    coinsUsed = []
 
-    dp = [0] * (num+1)
-    dp[0] = 0
-    dp[1] = 1
+    for coin in coins:
+        while amount >= coin:
+            coinsUsed.append(coin)
+            amount -= coin
 
-    for i in range(2, num + 1):
-        dp[i] = dp[i-2] + dp[i-1]
+    return coinsUsed
 
-    return dp
-
-
-print(foo(3))
+print(foo([1, 2, 5, 10, 20, 50, 100, 500, 2000], 93))
