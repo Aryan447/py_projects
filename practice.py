@@ -1,21 +1,17 @@
 '''
-Given a square matrix, calculate the absolute difference between the sums of its diagonals.
-For example, the square matrix
-
-is shown below:
-
-1 2 3
-4 5 6
-9 8 9
-
-The left-to-right diagonal = 15
-The right-to-left diagonal = 17
-Their absolute difference is 2
+0 3 4 2
+YES
 '''
 
-def countApplesAndOranges(s, t, a, b, apples, oranges):
-    # Write your code here
+def superReducedString(s):
+    stack = []
+    for char in s:
+        if stack and stack[-1] == char:
+            stack.pop()  # Remove the previous character
+        else:
+            stack.append(char)  # Add current character
+    return ''.join(stack) if stack else "Empty String"
 
+string = "aab"
 
-array = [73, 67, 38, 33]
-print(countApplesAndOranges(array))
+print(superReducedString(string))
