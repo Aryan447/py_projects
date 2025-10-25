@@ -12,7 +12,7 @@ def getHeight(node):
 
 def getBalance(node):
     if not node:
-        return 0 
+        return 0
     return getHeight(node.left) - getHeight(node.right)
 
 

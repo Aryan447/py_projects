@@ -14,9 +14,6 @@ class Solution:
         return ways[n]
 
 
-
-
 mysol = Solution()
-
 
 print(mysol.climbStairs(2))

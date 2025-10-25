@@ -19,7 +19,7 @@ class LinkedList:
         nodes = []
         edges = []
         current = self.head
-        
+
         while current:
             # Create a simpler node representation
             nodes.append({
@@ -36,7 +36,7 @@ class LinkedList:
                     "color": "#0000ff"  # Edge color
                 })
             current = current.next
-        
+
         return {
             "kind": {"graph": True},
             "nodes": nodes,
@@ -79,22 +79,22 @@ class LinkedList:
     def reverseList(self):
         prev = None
         current = self.head
-        
+
         # BREAKPOINT 1: Place breakpoint here to see initial state
         while current:
             # BREAKPOINT 2: Place breakpoint here to see state at start of each iteration
             temp = current.next
-            
+
             # BREAKPOINT 3: Place breakpoint here to see after temp saves the next pointer
             current.next = prev
-            
+
             # BREAKPOINT 4: Place breakpoint here to see after current.next is changed
             prev = current
-            
+
             # BREAKPOINT 5: Place breakpoint here to see after prev is updated
             current = temp
             # BREAKPOINT 6: Place breakpoint here to see after current moves to next node
-        
+
         # BREAKPOINT 7: Place breakpoint here to see final state before head update
         self.head = prev
         # BREAKPOINT 8: Place breakpoint here to see final reversed list
@@ -107,12 +107,12 @@ if __name__ == "__main__":
     llist.insertEnd(2)
     llist.insertEnd(3)
     # BREAKPOINT 10: Place breakpoint here to see original list
-    
+
     print("Original list:")
     llist.display()
-    
+
     llist.reverseList()
     # BREAKPOINT 11: Place breakpoint here to see final reversed list
-    
+
     print("\nReversed list:")
     llist.display()

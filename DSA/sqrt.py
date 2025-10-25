@@ -4,7 +4,7 @@
 def sqrt(x):
     if x == 0:
         return 0
-    
+
     left, right = 1, x
 
     while left <= right:
@@ -12,7 +12,7 @@ def sqrt(x):
 
         if (mid * mid) == x:
             return mid
-        
+
         elif (mid * mid) < x:
             left = mid + 1
 

@@ -1,4 +1,3 @@
-
 def twoSum(nums, target):
     numToIndex = {}
     for i, num in enumerate(nums):

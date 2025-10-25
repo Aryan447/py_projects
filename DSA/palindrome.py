@@ -4,7 +4,7 @@ def is_palindrome(s):
 
     if not isinstance(s, str):
         return False #Return false if input is not string or int
-    
+
     return s == s[::-1]
 
 print(is_palindrome(121))  # True
